@@ -1,0 +1,29 @@
+server: 
+  port: 9003
+spring: 
+  application:  
+    name: tensquare-qa #指定服务名
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.66.133:3306/tensquare_qa?characterEncoding=UTF8
+    username: root
+    password: 123456
+  jpa:
+    database: MySQL
+    show-sql: true
+    generate-ddl: true
+jwt:
+  config:
+    key: itcast
+    ttl: 360000
+eureka:
+  client:
+    register-with-eureka: true  # 是否向Eureka注册，作为客户端需要改为true
+    fetch-registry: true  # 是否需要从Eureka获取注册信息，作为客户端需要改为true
+    service‐url:
+      defaultZone: http://localhost:6868/eureka
+  instance:
+    prefer‐ip‐address: true
+feign:
+  hystrix:
+    enabled: true
